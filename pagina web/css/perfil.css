@@ -1,0 +1,541 @@
+/* Reset y Estilos Generales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Contenedor del video de fondo */
+#video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2; /* Envía al fondo */
+}
+
+#video video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover !important;
+}
+
+/* Capa de superposición del fondo - AJUSTADO */
+.capa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de superposición consistente */
+    z-index: -1;
+}
+
+/* Contenedor principal de la página para centrar el contenido */
+.main-content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* Añadido para el efecto de desplazamiento del menú */
+}
+
+/* Estilos para el box-blanco (encabezado) - AJUSTADO */
+#box-blanco {
+    width: 700px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px; /* Consistente con perfil_profesor.css */
+    border-radius: 10px; /* Consistente con perfil_profesor.css */
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    margin-bottom: 30px; /* Consistente con perfil_profesor.css */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Consistente con perfil_profesor.css */
+}
+
+#box-blanco h1 {
+    margin: 0;
+    color: rgb(224, 28, 28); /* Color consistente con profesores */
+    flex-grow: 1; /* Para centrar el título si es el único elemento */
+    text-align: center;
+    font-size: 2em; /* Tamaño de fuente consistente con profesores */
+}
+
+/* --- Estilos para el Menú Hamburguesa --- */
+
+/* 1. Ocultar el checkbox */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+/* 2. Estilos del ícono de la hamburguesa */
+.hamburger-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+    transition: left 0.3s ease;
+}
+
+.hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación de las barras cuando el menú está abierto */
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* 3. Estilos del menú lateral */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto a la izquierda */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* Espacio para el ícono de la hamburguesa */
+}
+
+/* Mostrar menú cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .side-menu {
+    left: 0; /* Desliza el menú a la vista */
+}
+
+/* 4. Estilos del overlay (capa oscura de fondo) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Mostrar overlay cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 5. Estilos para el contenido dentro del menú lateral - AJUSTADO */
+.side-menu .menu-header {
+    padding: 20px 20px 10px 20px; /* Consistente con profesores */
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    /* color: #333; - Eliminado para heredar color base */
+}
+
+.side-menu .menu-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.side-menu .menu-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    padding-top: 20px; /* Empuja los enlaces más abajo, consistente con perfil_profesor */
+}
+
+.side-menu .menu-nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.side-menu .menu-nav li a:hover {
+    background-color: #f5f5f5;
+    color: rgb(224, 28, 28);
+}
+
+.side-menu .menu-footer {
+    padding: 10px 20px; /* Mueve el botón de cerrar sesión más arriba, consistente con perfil_profesor */
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.side-menu .logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.side-menu .logout-button:hover {
+    background-color: #c82333;
+}
+
+/* 6. Ajustar el contenido principal y el icono de hamburguesa cuando el menú está abierto */
+.menu-toggle-checkbox:checked ~ .main-content-wrapper {
+    transform: translateX(250px);
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon {
+    left: 270px;
+}
+
+
+/* --- Estilos específicos de Perfil (Mantenidos y adaptados) --- */
+
+/* Contenedor principal del perfil - AJUSTADO */
+.profile-container {
+    position: relative;
+    z-index: 1;
+    max-width: clamp(300px, 90%, 500px); /* Ancho consistente con perfil_profesor */
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95); /* Consistente con perfil_profesor */
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Consistente con perfil_profesor */
+    text-align: center;
+}
+
+/* Títulos dentro del contenedor principal del perfil - AJUSTADO */
+.profile-container h2 {
+    color: rgb(224, 28, 28); /* Color consistente con profesores */
+    font-size: 1.8em; /* Tamaño de fuente consistente con profesores */
+    margin-top: 20px; /* Añadido para consistencia */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0; /* Color de línea consistente */
+    padding-bottom: 10px;
+}
+
+/* Estilos para el formulario */
+#profileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los grupos de formulario */
+    text-align: left; /* Alinear el texto de las etiquetas a la izquierda */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Consistente con perfil_profesor */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Consistente con perfil_profesor */
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 20px); /* Consistente con perfil_profesor */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em; /* Consistente con perfil_profesor */
+    box-sizing: border-box;
+}
+
+/* Estilos para la sección de foto de perfil - AJUSTADO */
+.profile-picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px; /* Consistente con perfil_profesor */
+    padding: 15px; /* Consistente con perfil_profesor */
+    /* Removido 'gap: 10px;' si no es necesario con los nuevos márgenes de botones */
+}
+
+#profilePicture {
+    width: 180px; /* Consistente con perfil_profesor */
+    height: 180px; /* Consistente con perfil_profesor */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgb(224, 28, 28); /* Color de borde consistente */
+    margin-bottom: 15px; /* Consistente con perfil_profesor */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra consistente */
+    transition: transform 0.3s ease;
+}
+
+/* Eliminado :before y hover de #profilePicture si no se usa */
+#profilePicture:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para los botones de la foto de perfil - AJUSTADO */
+.profile-picture-section button {
+    margin: 5px 0; /* Consistente con perfil_profesor */
+    width: 180px; /* Consistente con perfil_profesor */
+    padding: 10px 15px; /* Consistente con perfil_profesor */
+    border-radius: 8px; /* Consistente con perfil_profesor */
+    font-weight: bold;
+    text-transform: uppercase; /* Consistente con perfil_profesor */
+    letter-spacing: 0.5px; /* Consistente con perfil_profesor */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-self: center; /* Consistente con perfil_profesor */
+    border: none; /* Asegurar que no haya borde predefinido */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#changePhotoButton {
+    background-color: #28a745; /* Color consistente con perfil_profesor */
+    color: white;
+}
+
+#changePhotoButton:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#uploadPhotoButton {
+    background-color: #28a745; /* Color consistente con perfil_profesor */
+    color: white;
+    display: none;
+}
+
+#uploadPhotoButton:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#cancelUploadButton {
+    background-color: #ffc107; /* Color consistente con perfil_profesor */
+    color: #333;
+    display: none;
+}
+
+#cancelUploadButton:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el botón de guardar cambios del formulario - AJUSTADO */
+#saveProfileBtn {
+    background-color: rgb(224, 28, 28); /* Color consistente con profesores */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em; /* Consistente con profesores */
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    width: 240px;
+
+}
+
+#saveProfileBtn:hover {
+    background-color: rgb(189, 19, 19); /* Color hover consistente */
+}
+
+/* Estilos para mensajes de notificación - AJUSTADO */
+#custom-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8d7da; /* Color de error por defecto */
+    color: #721c24; /* Color de texto de error por defecto */
+    border: 1px solid #f5c6cb; /* Borde de error por defecto */
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.5s ease-in-out;
+    visibility: hidden; /* No interactuable */
+    max-width: 400px; /* Ancho máximo consistente */
+    box-sizing: border-box;
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 20px; /* Abajo */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Ajuste de centrado */
+    z-index: 1000; /* Por encima de otros elementos */
+}
+
+#custom-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#custom-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#custom-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+#custom-message.hidden {
+    display: none;
+}
+
+/* Media Queries para Responsividad */
+@media screen and (max-width: 768px) {
+    .main-content-wrapper { /* Esto afectará tanto a #box-blanco como .profile-container */
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    #box-blanco h1 {
+        font-size: 24px;
+    }
+
+    .profile-container {
+        max-width: 95%;
+        padding: 20px;
+        margin: 15px auto;
+    }
+
+    .profile-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    #profilePicture {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-picture-section button {
+        padding: 8px 15px;
+        font-size: 14px;
+        width: 150px; /* Ajuste para media query */
+    }
+
+    #saveProfileBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    /* Media queries específicas para el menú */
+    .hamburger-icon {
+        top: 15px;
+        left: 15px;
+        width: 25px;
+        height: 20px;
+    }
+    .hamburger-icon .bar {
+        height: 2.5px;
+    }
+    .side-menu {
+        width: 220px;
+        left: -220px;
+        padding-top: 50px;
+    }
+    .menu-toggle-checkbox:checked ~ .main-content-wrapper {
+        transform: translateX(220px);
+    }
+    .menu-toggle-checkbox:checked + .hamburger-icon {
+        left: 235px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content-wrapper {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    #box-blanco {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    #box-blanco h1 {
+        font-size: 22px;
+    }
+
+    .profile-container {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 15px;
+    }
+
+    .profile-container h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    #profilePicture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-picture-section button {
+        margin: 3px;
+        width: 120px; /* Ajuste para media query */
+    }
+}
+/* Estilos para el nuevo contenedor de botones en la sección de perfil */
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+    gap: 10px; /* Espacio entre botones */
+    justify-content: center; /* Centra los botones */
+    margin-top: 20px;
+}
+
+/* Estilos generales para los botones dentro de profile-actions */
+.profile-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto del botón se rompa en varias líneas */
+}
+
