@@ -1,0 +1,245 @@
+body{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+h1{
+    /*position: fixed;           el elemento se queda fijo*/
+    backdrop-filter: blur(4px);
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    background: #e7e6e6;
+    height: 390px;
+    width: 390px;    border-radius: 10px; /* Ajusta este valor para cambiar el radio de las esquinas */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-color: black;
+    margin-top: 130px;
+    
+}
+
+#centrado{
+    position: fixed;
+}
+
+#registrese{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    color: black;
+}
+#nombre-usuario{
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 200px;
+        margin-top: 0px;
+}
+#contraseña{
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+}
+h2{
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+#boton-iniciar-sesion{
+        color: black; /* Color del texto blanco */
+        padding: 8px 15px; /* Relleno interno */
+        text-align: center; /* Alinear el texto al centro */
+        text-decoration: none; /* Quitar la decoración del texto */
+        display: inline-block; /* Mostrar el botón como un bloque en línea */
+        font-size: 16px; /* Tamaño de la fuente */
+        margin: 4px 2px; /* Márgenes */
+        border: none; /* Quitar el borde */
+        border-radius: 4px; /* Borde redondeado */
+        cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+}
+/*EJEMPLO*/
+/*#boton-iniciar-sesion:hover{
+    background-color: blueviolet;
+}  */
+label{
+    font-size: 25px;
+    color:white;
+    
+}
+/*p{                           #EJEMPLO 
+    color:yellow;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    font-style: italic/normal/oblique;    
+    text-align: left/right/center/justify ;  
+    text-decoration: underline/ overline/ line-through;
+    line-height: normal/1/1.5/2.5;
+    letter-spacing: 10;
+
+}*/
+
+input{
+    padding: 3px; 
+}
+
+img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Modifica el z-index a -1 para enviar la imagen al fondo */
+}
+
+.imagen-delantera {
+    position: relative;
+    z-index: 1; /* Establece un z-index positivo para los elementos que deben estar encima de la imagen */
+}
+
+form{
+    max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+
+p{
+    color: white;
+}
+
+
+
+/* Contenedor del video de fondo - ID "video" */
+#video {
+    position: fixed; /* Fija el div en el viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Oculta cualquier parte del video que se desborde */
+    z-index: -2; /* Coloca el div detrás de todo el contenido */
+}
+
+/* El elemento <video> en sí */
+#video video { /* Selecciona la etiqueta video DENTRO del div con id="video" */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; /* Permite que el ancho se ajuste automáticamente */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    position: absolute; /* Posiciona el video absolutamente dentro de su contenedor #video */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el video dentro de su contenedor */
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor sin distorsionarse */
+    /* Si el video se vuelve pequeño de nuevo, considera añadir !important aquí:
+       width: 100% !important;
+       height: 100% !important;
+       object-fit: cover !important;
+    */
+}
+
+
+/* Capa de superposición - CLASE "capa" */
+.capa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.178); /* Capa semi-transparente (negra con 50% de opacidad) */
+    z-index: -1; /* Encima del video, pero debajo del contenido */
+}
+
+.container {
+    position: relative; /* Necesario para que z-index funcione y para que margin:auto funcione */
+    z-index: 1; /* Un valor positivo, lo envía por encima del video y la capa */
+    max-width: 1200px; /* Establece el ancho máximo deseado */
+    margin-left: auto; /* Centra el elemento horizontalmente */
+    margin-right: auto; /* Centra el elemento horizontalmente */
+    padding: 20px; /* Mantén el padding interno */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+    border-radius: 8px; /* Añadimos border-radius para consistencia visual */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadimos sombra para un efecto de "tarjeta" */
+}
+
+/* Estilos para el mensaje personalizado */
+#custom-message {
+    position: fixed; /* Lo fija en el viewport */
+    top: 50px; /* <--- CAMBIO AQUÍ: Posiciona el mensaje a 50px del borde superior */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* <--- CAMBIO AQUÍ: Solo centra horizontalmente */
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.5s ease-in-out; /* Transición suave para aparecer/desaparecer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para un mejor efecto visual */
+    pointer-events: none; /* Permite clics a través del mensaje cuando está oculto */
+}
+
+/* Clases para diferentes tipos de mensajes */
+#custom-message.error {
+    background-color: #e74c3c; /* Rojo para mensajes de error */
+}
+
+#custom-message.success {
+    background-color: #2ecc71; /* Verde para mensajes de éxito */
+}
+
+/* Clase para ocultar el mensaje */
+#custom-message.hidden {
+    opacity: 0;
+    pointer-events: none; /* Asegura que no sea interactuable cuando está oculto */
+}
+
+/* Clase para mostrar el mensaje */
+#custom-message.show {
+    opacity: 1;
+    pointer-events: auto; /* Permite interacción cuando está visible */
+}
+
+.form-link {
+    color: #007bff; /* Un azul vibrante */
+    text-decoration: none; /* Sin subrayado por defecto */
+    font-weight: bold; /* Texto en negrita */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Consistencia de fuente */
+    font-size: 15px; /* Tamaño de fuente para que coincida con el texto del párrafo */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.form-link:hover {
+    color: #0056b3; /* Un azul más oscuro al pasar el ratón */
+    text-decoration: underline; /* Subraya al pasar el ratón */
+}
+
+#men{
+    padding-top: 20px;
+    color: #555;
+    text-decoration: none; /* Sin subrayado por defecto */
+    font-weight: bold; /* Texto en negrita */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Consistencia de fuente */
+    font-size: 15px; /* Tamaño de fuente para que coincida con el texto del párrafo */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave para efectos hover */
+
+}
