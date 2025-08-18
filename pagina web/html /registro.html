@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./css/registro-estilo.css">
+</head>
+<body>
+    <div id="video-background">
+        <video muted autoplay loop>
+            <source src="VIDEOS/video.fondo2.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="capa"></div>
+
+    <form id="registro-form">
+        <div id="centrado">
+            <h1>Colegio Dr. Ernesto Guevara</h1>
+            <div id="boletin">
+                Registro de Usuario
+            </div>
+
+            <input id="nombre-completo" type="text" required placeholder="Nombre completo">
+            <input id="email" type="email" required placeholder="Email">
+            <input id="nombre-usuario" type="text" required placeholder="Nombre de usuario">
+            <input id="password" type="password" required placeholder="Contraseña">
+
+            <select id="curso-selector" required>
+                <option value="" disabled selected>Selecciona tu curso</option>
+                <option value="1">7°1</option>
+                <option value="2">7°2</option>
+                <option value="3">7°3</option>
+            </select>
+
+            <button type="submit" id="boton-registro">Registrarse</button>
+            <p id="ya-tiene-cuenta">¿Ya tiene una cuenta? <a id="iniciar-sesion" href="index.html">Iniciar sesión</a></p>
+        </div>
+        <div id="custom-message" class="hidden"></div>
+    </form>
+
+    <script src="./js/registro.js"></script>
+</body>
+</html>
