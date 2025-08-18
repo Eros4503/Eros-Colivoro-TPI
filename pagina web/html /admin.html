@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard Administrador</title>
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <div id="box-blanco">
+        <h1>Administrador</h1>
+        </div>
+    <div class="container">
+        <div class="admin-section">
+            <h3>Registrar Nuevo Profesor</h3>
+            <div id="admin-notification-message" class="notification-message"></div>
+            <form id="registroProfesorForm">
+                <div class="form-group">
+                    <label for="regProfesorNombreCompleto">Nombre Completo:</label>
+                    <input type="text" id="regProfesorNombreCompleto" name="nombre_completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="regProfesorEmail">Email:</label>
+                    <input type="email" id="regProfesorEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regProfesorNombreUsuario">Nombre de Usuario:</label>
+                    <input type="text" id="regProfesorNombreUsuario" name="nombre_usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="regProfesorContrasena">Contraseña:</label>
+                    <input type="password" id="regProfesorContrasena" name="contrasena" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Registrar Profesor</button>
+                </div>
+            </form>
+        </div>
+        <h2>Gestión de Usuarios</h2>
+        <table id="usuariosTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Email</th>
+                    <th>Nombre Usuario</th>
+                    <th>Tipo Usuario</th>
+                    <th>Curso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+        <h2>Gestión de Notas</h2>
+        <table id="notasTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Alumno</th>
+                    <th>Materia</th>
+                    <th>Profesor</th>
+                    <th>Nota</th>
+                    <th>Período</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+        <div style="text-align: right; margin-top: 20px;">
+            <button id="eliminarTodasNotasBtn" class="delete-all-btn">Eliminar Todas las Notas</button>
+        </div>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+            <div class="modal-buttons">
+                <button id="modalConfirmBtn" class="confirm-btn"></button>
+                <button id="modalCancelBtn" class="cancel-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationMessage" class="notification-message"></div>
+
+    <script src="./js/admin.js"></script>
+</body>
+</html>
