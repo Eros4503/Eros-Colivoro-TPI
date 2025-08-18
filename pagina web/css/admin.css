@@ -1,0 +1,458 @@
+/* Estilos generales del body */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del video de fondo (opcional, si quieres video en el admin) */
+#video { /* Asegúrate de añadir <div id="video"> en admin_dashboard.html si lo usas */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+#video video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover !important;
+}
+
+/* Capa de superposición (opcional, si usas video de fondo) */
+.capa { /* Asegúrate de añadir <div class="capa"> en admin_dashboard.html si lo usas */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.178);
+    z-index: -1;
+}
+
+/* Estilos para el encabezado principal */
+#box-blanco {
+    background: rgba(231, 230, 230, 0.85); /* Fondo semi-transparente */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Por encima del video/capa */
+    max-width: 1200px; /* Ancho máximo */
+    margin: 20px auto; /* Centrado y margen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#box-blanco h1 {
+    color: #333;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#imagen-guevara {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; /* Para que sea circular */
+    object-fit: cover;
+}
+
+/* Estilos para los contenedores de gestión (usuarios y notas) */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px; /* Mismo ancho que el encabezado */
+    margin: 20px auto; /* Centrado y margen */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo de tarjeta semi-transparente */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+h2 {
+    color: #000;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table thead th {
+    background-color: rgba(242, 242, 242, 0.9);
+    color: #333;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table tbody td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hover en filas de tabla */
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: rgba(220, 220, 220, 0.95);
+    cursor: pointer;
+}
+
+/* Estilos para los botones de acción (Editar/Eliminar individual) */
+.acciones-cell button {
+    background-color: #007bff; /* Azul para Editar */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 5px;
+}
+
+.acciones-cell button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.acciones-cell button.delete-btn { /* Clase específica para el botón de eliminar individual */
+    background-color: #dc3545; /* Rojo para Eliminar */
+}
+
+.acciones-cell button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* NUEVO: Estilo para el botón "Eliminar Todas las Notas" */
+button.delete-all-btn {
+    background-color: #dc3545; /* Rojo más oscuro para destacar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+}
+
+button.delete-all-btn:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hover */
+}
+
+button.delete-all-btn:active {
+    transform: translateY(0); /* Vuelve a la posición normal al hacer clic */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra más sutil al hacer clic */
+}
+
+
+/* Estilos para el modal de edición/confirmación (se creará con JS) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content select {
+    width: calc(100% - 20px); /* Ancho completo menos padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.modal-content .modal-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-content .modal-buttons button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content .modal-buttons button.confirm-btn {
+    background-color: #28a745; /* Verde para confirmar */
+    color: white;
+    border: none;
+}
+
+.modal-content .modal-buttons button.confirm-btn:hover {
+    background-color: #218838;
+}
+
+.modal-content .modal-buttons button.cancel-btn {
+    background-color: #6c757d; /* Gris para cancelar */
+    color: white;
+    border: none;
+}
+
+.modal-content .modal-buttons button.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Mensajes de notificación */
+.notification-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.notification-message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notification-message.error {
+    background-color: #dc3545;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    #box-blanco, .container {
+        max-width: 95%; /* Más ancho en pantallas pequeñas */
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    #box-blanco h1 {
+        font-size: 24px;
+    }
+
+    table thead th, table tbody td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .acciones-cell button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    button.delete-all-btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    #box-blanco, .container {
+        max-width: 100%;
+        margin: 5px auto;
+        padding: 10px;
+        border-radius: 0; /* Sin bordes redondeados en pantallas muy pequeñas */
+        box-shadow: none;
+    }
+
+    #imagen-guevara {
+        height: 60px;
+        width: 60px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        padding-bottom: 5px;
+    }
+
+    table thead th, table tbody td {
+        padding: 5px;
+        font-size: 0.75em;
+    }
+
+    .acciones-cell button {
+        margin-right: 2px;
+        padding: 4px 6px;
+    }
+
+    button.delete-all-btn {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* admin.css */
+
+/* Estilos para la nueva sección de registro en el admin dashboard */
+.admin-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    /* Asegúrate de que este margen no entre en conflicto con otros elementos */
+}
+
+.admin-section h3 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555; /* Un color ligeramente más oscuro para las etiquetas */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: calc(100% - 22px); /* Ajuste para padding y borde */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    font-size: 1em;
+}
+
+.form-group button[type="submit"] {
+    background-color: #28a745; /* Color verde para el botón de registro */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Espacio superior para el botón */
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Estilos para el mensaje de notificación dentro del formulario de admin */
+#admin-notification-message {
+    padding: 10px;
+    margin-bottom: 15px; /* Espacio debajo del mensaje */
+    border-radius: 4px;
+    display: none; /* Oculto por defecto */
+    font-weight: bold;
+    text-align: center;
+}
+
+#admin-notification-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#admin-notification-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
