@@ -1,0 +1,285 @@
+/*  abri un div: <div> </div>  */
+body{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+#tr1{
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+}
+#box-guevara{
+    background: #e7e6e696;
+    width: 100%;     /*  EL ANCHO DEL BOX  */
+    height: 180px;   /*  EL LARGO DEL BOX  */
+    border-radius: 10px; /* Ajusta este valor para cambiar el radio de las esquinas */
+}
+#imagen-guevara{
+    height: 130px;
+    width: 130px;
+    position: absolute;
+    margin-left: 190px;
+}
+
+
+#primer-cuadro{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    width: 350px;
+    font-size: 30px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    
+}
+#box-blanco{
+    padding-top: 5px;
+    height: 200px;
+    width: 100%;
+    background: #e7e6e696;
+    border-radius: 10px;
+
+}
+
+#box-blanco2{
+    width: 900px;
+    height: 250px;
+    background: #e7e6e696;
+    margin-left: 215px;
+    font-size: 20px;
+    margin-top: 40px;   
+    padding-bottom: 15px;
+    border-radius: 10px;
+
+}
+#img-info{
+    position: absolute;
+    height: 160px;
+    width: 160px;
+    margin-left: 640px;
+    top: 290px;
+}
+#box-blanco3{
+    margin-left: 215px;
+    text-align: center;
+    width: 900px;
+    height: 200px;
+    background: #e7e6e696;
+    font-size: 20px;
+    margin-top: 60px; 
+    padding-bottom: 15px;
+    border-radius: 10px;
+}
+#box-blanco4{
+    margin-left: 215px; 
+    text-align: center;
+    width: 900px;
+    height: 200px;
+    background: #e7e6e696;
+    font-size: 20px;
+    margin-top: 60px;   
+    padding-bottom: 15px;
+    border-radius: 10px;
+}
+#informacion-cartel{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    width: 350px;
+    font-size: 30px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+}
+#Contacto{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    width: 350px;
+    font-size: 30px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+}
+#mensaje1{
+    padding-left: 30px;
+    width: 600px;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 15px;
+    padding-right: 30px;
+}
+#mensaje{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#gmail{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+#img-gmail{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    margin-top: 65px;
+    margin-left: 240px;
+}
+#num{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+#img-contacto{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    margin-left: 240px;
+    margin-top: 100px;
+}
+#info{
+    margin: 40px;
+}
+
+
+#modalidades{
+    width: 250px;
+    height: 100px;
+    background: #e7e6e696;
+    padding-left: 600px;
+}
+
+#imagen-roja{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Modifica el z-index a -1 para enviar la imagen al fondo */
+}
+
+
+/*TEXTOS*/
+
+#titulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    line-height: 0.5;
+    padding-left: 20px;
+}
+#subtitulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    line-height: 0.5;
+    padding-left: 20px;
+}
+#ayp{
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 30px;
+    border-left-width: 2px;
+    border-color: black;
+    color: black;
+}
+#ayp:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#modalidad3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 30px;
+    padding-right: 45px;
+    border-left-width: 2px;
+    border-color: black;
+    border-left-style: solid;
+}
+#modalidad3:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#horarios{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-left-width: 2px;
+    border-color: black;
+    border-left-style: solid;
+}
+#horarios1{
+    background: #e7e6e6;    
+    color: black;
+    text-decoration: none;
+}
+#horarios1:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#horarios:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#contactanos{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-left-width: 2px;
+    border-color: black;
+    border-left-style: solid;
+    color:black;
+}
+#contact{
+    color: black;
+    text-decoration: none;
+}
+#contactanos:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#ayuda{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    padding-left: 45px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-color: black;
+    border-left-style: solid;
+}
+#ayud{
+    color: black;
+    text-decoration: none;
+}
+#ayuda:hover{
+    background: #e7e6e6;    
+    text-decoration: underline;
+}
+#tecnica{
+    font-size: 30px;
+    margin-top: 20px;
+}
+#tecnica2{
+    color: black;
+    
+    
+}
+#bachi{
+    font-size: 30px;
+    margin-top: 20px;
+
+}
+#bachi2{
+    color: black;
+}
+
+table{
+    margin-left: 200px;
+}
+#BOTON{
+    margin-left: 100px;
+    width: 100px;
+    height: 100px;
+}
