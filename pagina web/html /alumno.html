@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumno</title>
+    <link rel="stylesheet" href="./css/alumno.css">
+    </head>
+
+<body>
+    <div id="video">
+        <video muted autoplay loop>
+            <source src="VIDEOS/fondo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="capa"> </div>
+
+    <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
+
+    <label for="menuToggle" class="hamburger-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+
+    <aside id="sideMenu" class="side-menu">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="alumno.html">Mis Notas</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                </ul>
+        <div class="menu-footer">
+        <button id="logoutButton" class="logout-button">Cerrar Sesión</button>
+        </nav>
+        </div>
+    </aside>
+    <label for="menuToggle" class="overlay"> </label>
+
+    <div id="box-blanco" class="main-content-wrapper">
+        <h1 id="alumnoNombreDisplay"> Alumno</h1>
+    </div>
+
+    <div class="container main-content-wrapper">
+        <h2>Mis Notas</h2>
+        <table id="notasTable">
+            <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>1er Informe</th>
+                    <th>2do Informe</th>
+                    <th>1er Cuatrimestre</th>
+                    <th>3er Informe</th>
+                    <th>4to Informe</th>
+                    <th>2do Cuatrimestre</th>
+                    <th>Nota Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </div>
+
+    <div id="notificationMessage" class="notification-message"></div>
+
+    <script src="./js/alumno.js"></script>
+</body>
+
+</html>
