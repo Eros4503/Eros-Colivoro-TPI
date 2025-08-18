@@ -1,0 +1,453 @@
+/* General Body and Background Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f7f6;
+    overflow-x: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+
+}
+
+/* Video Background */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+#video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+/* Overlay for video background */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Main content wrapper to center the card */
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+/* Header Box */
+.header-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    align-items: center;
+    width: clamp(300px, 90%, 700px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.header-box h1 {
+    color: rgb(224, 28, 28);
+    margin: 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Profile Card */
+.card.profile-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    width: clamp(300px, 90%, 500px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.profile-card h2 {
+    color: rgb(224, 28, 28);
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* PROFILE PICTURE SECTION */
+.profile-picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px;
+}
+
+#profilePicture {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgb(224, 28, 28);
+    margin-bottom: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture-section button {
+    margin: 5px 0;
+    width: 180px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-self: center;
+}
+
+#changePhotoButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+#changePhotoButton:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#uploadPhotoButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    display: none;
+}
+
+#uploadPhotoButton:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#cancelUploadButton {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    display: none;
+}
+
+#cancelUploadButton:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+#deletePhotoButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    display: none;
+}
+
+#deletePhotoButton:hover {
+    background-color: rgb(189, 19, 19);
+    transform: translateY(-2px);
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(85% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;   
+}
+
+.form-group span {
+    display: block;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #666;
+    box-sizing: border-box;
+}
+
+/* Save Profile Button */
+#saveProfileBtn {
+    background-color: rgb(224, 28, 28);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    font-weight: bold; /* Para hacer la letra en negrita (más gruesa) */
+
+}
+
+#saveProfileBtn:hover {
+    background-color: rgb(189, 19, 19);
+}
+
+/* Notification Message */
+.notification-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    visibility: hidden;
+    max-width: 400px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.notification-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.notification-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* --- ESTILOS DEL MENÚ DE HAMBURGUESA Y SIDEBAR (COPIADOS DE PROFESORES.CSS) --- */
+
+/* 1. Ocultar el checkbox */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+/* 2. Estilos del ícono de la hamburguesa */
+.hamburger-icon {
+    position: fixed;
+    top: 20px; /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde la parte izquierda */
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima de todo */
+    transition: left 0.3s ease; /* Para animación cuando el menú se abre */
+}
+
+.hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white; /* Color de las barras */
+    border-radius: 2px;
+    transition: all 0.3s ease; /* Animación de las barras */
+}
+
+/* Animación de las barras cuando el menú está abierto */
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg); /* Barra superior gira y baja */
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(2) {
+    opacity: 0; /* Barra del medio se desvanece */
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg); /* Barra inferior gira y sube */
+}
+
+/* 3. Estilos del menú lateral (ahora usando .side-menu como en profesores.css) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto a la izquierda */
+    width: 250px;
+    height: 100%;
+    background-color: #fff; /* Fondo del menú */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    transition: left 0.3s ease; /* Animación de deslizamiento */
+    z-index: 1000; /* Por debajo del icono de hamburguesa */
+    display: flex;
+    flex-direction: column; /* Contenido apilado verticalmente */
+}
+
+/* Mostrar menú cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .side-menu {
+    left: 0; /* Desliza el menú a la vista */
+}
+
+/* Estilos para el encabezado del menú (para posible logo o título) */
+.side-menu .menu-header {
+    padding: 20px 20px 10px 20px; /* Ajuste para espacio superior */
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Estilos para la navegación principal del menú */
+.side-menu .menu-nav {
+    flex-grow: 1; /* Permite que el nav ocupe el espacio restante */
+    overflow-y: auto; /* Para scroll si hay muchos ítems */
+}
+
+/* Estilos para los enlaces del menú */
+.side-menu .menu-nav ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;       /* Elimina el padding por defecto */
+    flex-grow: 1;     /* Importante para que ul ocupe el espacio y empuje el footer */
+    margin-top: 100px;
+}
+
+.side-menu .menu-nav li {
+    margin-bottom: 0; /* Asegura no hay margen entre items */
+}
+
+.side-menu .menu-nav li a {
+    display: block;                  /* Hace que el enlace ocupe todo el ancho del ítem */
+    padding: 15px 20px;              /* Espaciado interno del enlace */
+    color: #555;                     /* Color del texto del enlace */
+    text-decoration: none;           /* Elimina el subrayado */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave al pasar el ratón */
+    border-bottom: 1px solid #f0f0f0; /* Línea divisoria en la parte inferior */
+}
+
+.side-menu .menu-nav li a:hover {
+    background-color: #f5f5f5;       /* Fondo más claro al pasar el ratón */
+    color: rgb(224, 28, 28);         /* Color de texto rojo al pasar el ratón */
+}
+
+/* Estilos para el footer del menú (para el botón de cerrar sesión) */
+.side-menu .menu-footer {
+    margin-bottom: 470px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+/* Estilos para el botón de cerrar sesión (ahora usando .logout-button) */
+.side-menu .logout-button {
+    background-color: #dc3545;       /* Color de fondo rojo */
+    color: white;                    /* Color del texto blanco */
+    border: none;                    /* Sin borde */
+    padding: 10px 20px;              /* Espaciado interno */
+    border-radius: 5px;              /* Bordes ligeramente redondeados */
+    cursor: pointer;                 /* Muestra el cursor de mano al pasar por encima */
+    font-size: 16px;                 /* Tamaño de la fuente */
+    width: 100%;                     /* Ocupa el 100% del ancho de su contenedor */
+    transition: background-color 0.2s ease; /* Transición suave al cambiar el color de fondo */
+}
+
+.side-menu .logout-button:hover {
+    background-color: #c82333;       /* Rojo más oscuro al pasar el ratón */
+}
+
+/* 4. Estilos del overlay (capa oscura de fondo) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro semi-transparente */
+    z-index: 999; /* Por debajo del menú y el icono */
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* Inicialmente no interactuable */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave */
+}
+
+/* Mostrar overlay cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .overlay {
+    opacity: 1; /* Hacer visible */
+    visibility: visible; /* Hacer interactuable (para clicks de cierre) */
+}
+
+/* 5. Ajustar el contenido principal y el icono de hamburguesa cuando el menú está abierto */
+.menu-toggle-checkbox:checked ~ .main-content-wrapper {
+    transform: translateX(250px); /* Mueve el contenido a la derecha según el ancho del menú */
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon {
+    left: 270px; /* Mueve el icono para que quede visible junto al menú abierto (250px + 20px de margen original) */
+}
+
+/* Media Queries para Responsividad (ajusta si ya tienes otras) */
+@media (max-width: 768px) {
+    .hamburger-icon {
+        top: 15px;
+        left: 15px;
+        width: 25px;
+        height: 20px;
+    }
+    .hamburger-icon .bar {
+        height: 2.5px;
+    }
+    .side-menu { /* Usa la clase .side-menu */
+        width: 220px;
+        left: -220px;
+    }
+    .menu-toggle-checkbox:checked ~ .main-content-wrapper {
+        transform: translateX(220px);
+    }
+    .menu-toggle-checkbox:checked + .hamburger-icon {
+        left: 235px;
+    }
+}
