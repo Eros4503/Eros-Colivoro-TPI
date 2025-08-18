@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Alumno</title>
+    <link rel="stylesheet" href="./css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="video">
+        <video muted autoplay loop>
+            <source src="VIDEOS/fondo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="capa"></div>
+
+    <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
+
+    <label for="menuToggle" class="hamburger-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+
+    <aside id="sideMenu" class="side-menu">
+        <div class="menu-header">
+            </div>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="alumno.html">Mis Notas</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                </ul>
+        </nav>
+        <div class="menu-footer">
+            <button id="logoutButton" class="logout-button">Cerrar Sesión</button>
+        </div>
+    </aside>
+
+    <div class="overlay"></div>
+    <div id="box-blanco" class="main-content-wrapper">
+        <h1 id="perfilTitleDisplay">Mi Perfil</h1>
+        <div id="custom-message" class="hidden"></div>
+    </div>
+
+    <div class="profile-container main-content-wrapper">
+
+        <div class="profile-picture-section">
+            <img id="profilePicture" src="./uploads/fotos_perfil/default_profile.png" alt="">
+            <input type="file" id="photoUploadInput" accept="image/*" style="display: none;">
+            <button type="button" id="changePhotoButton">Cambiar Foto</button>
+            <button type="button" id="uploadPhotoButton" style="display: none;">Subir Foto</button>
+            <button type="button" id="cancelUploadButton" style="display: none;">Cancelar</button>        
+        
+        <h2>Editar Información Personal</h2>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="fullName">Nombre Completo:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña (dejar en blanco para no cambiar):</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" id="saveProfileBtn">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script src="./js/perfil.js"></script>
+</body>
+</html>
