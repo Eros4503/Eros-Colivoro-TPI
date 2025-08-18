@@ -1,0 +1,529 @@
+/* Reset y Estilos Generales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que html y body ocupen el 100% del viewport */
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Contenedor del video de fondo (o imagen de fondo) */
+#video-background { /* ID para el contenedor del video/imagen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2; /* Envía al fondo */
+}
+
+#video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover !important; /* Asegura que el video cubra todo el espacio */
+}
+
+/* Capa de superposición del fondo */
+.background-overlay { /* Clase para la capa de superposición */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.178); /* Capa semi-transparente */
+    z-index: -1; /* Encima del video, debajo del contenido */
+}
+
+/* Contenedor principal de la página para centrar el contenido */
+.main-content-wrapper {
+    position: relative; /* Necesario para z-index */
+    z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 20px auto; /* Centra el contenido y añade margen superior/inferior */
+    padding: 20px; /* Padding interno para el wrapper */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Estilos para el encabezado principal del profesor */
+.header-box { /* Usaremos esta clase para el h1 contenedor */
+    background: rgba(231, 230, 230, 0.85); /* Fondo semi-transparente */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+.header-box h1 {
+    color: #333;
+    font-size: 30px;
+    margin: 0; /* Eliminar márgenes por defecto del h1 */
+    padding: 0; /* Eliminar padding por defecto del h1 */
+}
+
+/* Imagen del logo (si la tienes en el encabezado) */
+#imagen-guevara {
+    position: absolute; /* Cambiado a absolute para que esté dentro del .header-box */
+    top: 10px;
+    left: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; /* Para que sea circular */
+    object-fit: cover;
+    z-index: 2; /* Asegura que la imagen esté sobre el fondo del header-box */
+}
+
+
+/* Contenedores de formularios y tablas (tarjetas) */
+.card {
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo de tarjeta semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio entre tarjetas */
+}
+
+/* Títulos dentro de las tarjetas */
+.card h2 {
+    color: #000;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los selectores y sus labels */
+.form-group { /* Agrupador para label y select */
+    margin-bottom: 15px;
+    display: flex; /* Usar flexbox para alinear label y select */
+    align-items: center; /* Centrar verticalmente */
+    gap: 10px; /* Espacio entre label y select */
+}
+
+.form-group label {
+    margin-bottom: 0; /* Eliminar margen inferior si usas flex */
+    flex-shrink: 0; /* Evita que la label se encoja */
+    width: 120px; /* Ancho fijo para las labels para alineación */
+    text-align: right; /* Alinea el texto de la label a la derecha */
+}
+
+select {
+    width: auto; /* Permite que el select se ajuste al contenido */
+    flex-grow: 1; /* Hace que el select ocupe el espacio restante */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff; /* Borde azul al enfocar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra de enfoque */
+}
+
+/* Estilos para los botones */
+.button-group { /* Contenedor para los botones */
+    text-align: center; /* Centra los botones */
+    margin-top: 20px;
+}
+
+button {
+    background-color: rgb(224, 28, 28); 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animación al hover */
+    margin: 0 10px; /* Espacio entre botones */
+}
+
+button:hover {
+    background-color: rgb(189, 19, 19);
+
+    transform: translateY(-2px); /* Efecto de "levantar" */
+}
+
+button:active {
+    transform: translateY(0); /* Vuelve a la posición normal al hacer clic */
+}
+
+/* Estilos para la tabla de notas */
+#notasTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
+}
+
+#notasTable th,
+#notasTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#notasTable th {
+    background-color: rgba(242, 242, 242, 0.9); /* Fondo de encabezado semi-transparente */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hover en filas de tabla */
+#notasTable tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+#notasTable tbody tr:hover {
+    background-color: rgba(220, 220, 220, 0.95);
+    cursor: pointer;
+}
+
+/* Estilos para los inputs de nota dentro de la tabla */
+#notasTable input[type="number"] {
+    width: 80px; /* Ancho fijo para el input de nota */
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#notasTable input[type="number"]:focus {
+    outline: none;
+    border-color: rgb(224, 28, 28);
+
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para el botón de guardar notas dentro de la tabla (si existe) */
+#notasTable button.save-btn {
+    background-color: #28a745; /* Verde para guardar */
+    margin: 0; /* Eliminar margen extra */
+    padding: 6px 10px;
+    font-size: 0.9em;
+}
+
+#notasTable button.save-btn:hover {
+    background-color: #218838;
+}
+
+/* Mensajes de notificación (similar al admin) */
+.notification-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.notification-message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notification-message.error {
+    background-color: #dc3545;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-content-wrapper {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .header-box {
+        padding: 15px;
+    }
+
+    .header-box h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex-direction: column; /* Apila labels y selects en pantallas pequeñas */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .form-group label {
+        width: auto;
+        text-align: left;
+    }
+
+    select {
+        width: 100%; /* El select ocupa todo el ancho disponible */
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%; /* Botones a ancho completo */
+        margin: 5px 0;
+    }
+
+    #notasTable {
+        overflow-x: auto; /* Habilita scroll horizontal para tablas grandes */
+        display: block; /* Necesario para overflow-x en tablas */
+    }
+
+    #notasTable th,
+    #notasTable td {
+        white-space: nowrap; /* Evita que el texto se envuelva en celdas */
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    #notasTable input[type="number"] {
+        width: 60px; /* Ancho más pequeño para inputs de nota */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content-wrapper {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .header-box {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .card {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    #imagen-guevara {
+        height: 50px;
+        width: 50px;
+    }
+
+    .card h2 {
+        font-size: 1em;
+        padding-bottom: 5px;
+    }
+
+    #notasTable th,
+    #notasTable td {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+}
+/* --- Estilos para el Menú Hamburguesa (HTML/CSS-only control) --- */
+
+/* 1. Ocultar el checkbox */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+/* 2. Estilos del ícono de la hamburguesa */
+.hamburger-icon {
+    position: fixed;
+    top: 20px; /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde la parte izquierda */
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima de todo */
+    transition: left 0.3s ease; /* Para animación cuando el menú se abre */
+}
+
+.hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white; /* Color de las barras */
+    border-radius: 2px;
+    transition: all 0.3s ease; /* Animación de las barras */
+}
+
+/* Animación de las barras cuando el menú está abierto */
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg); /* Barra superior gira y baja */
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(2) {
+    opacity: 0; /* Barra del medio se desvanece */
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon .bar:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg); /* Barra inferior gira y sube */
+}
+
+/* 3. Estilos del menú lateral */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto a la izquierda */
+    width: 250px;
+    height: 100%;
+    background-color: #fff; /* Fondo del menú */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    transition: left 0.3s ease; /* Animación de deslizamiento */
+    z-index: 1000; /* Por debajo del icono de hamburguesa */
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* Espacio para el ícono de la hamburguesa */
+}
+
+/* Mostrar menú cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .side-menu {
+    left: 0; /* Desliza el menú a la vista */
+}
+
+/* 4. Estilos del overlay (capa oscura de fondo) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro semi-transparente */
+    z-index: 999; /* Por debajo del menú y el icono */
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* Inicialmente no interactuable */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave */
+}
+
+/* Mostrar overlay cuando el checkbox está 'checked' */
+.menu-toggle-checkbox:checked ~ .overlay {
+    opacity: 1; /* Hacer visible */
+    visibility: visible; /* Hacer interactuable (para clicks de cierre) */
+}
+
+/* 5. Estilos para el contenido dentro del menú lateral */
+.side-menu .menu-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.side-menu .menu-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.side-menu .menu-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Permite que la lista ocupe el espacio restante */
+}
+
+.side-menu .menu-nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.side-menu .menu-nav li a:hover {
+    background-color: #f5f5f5;
+    color: rgb(224, 28, 28);
+}
+
+.side-menu .menu-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.side-menu .logout-button {
+    background-color: #dc3545; /* Color rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.side-menu .logout-button:hover {
+    background-color: #c82333;
+}
+
+/* 6. Ajustar el contenido principal y el icono de hamburguesa cuando el menú está abierto */
+/* Esto crea un efecto de "empuje" del contenido principal */
+.menu-toggle-checkbox:checked ~ .main-content-wrapper {
+    transform: translateX(250px); /* Mueve el contenido a la derecha según el ancho del menú */
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle-checkbox:checked + .hamburger-icon {
+    left: 270px; /* Mueve el icono para que quede visible junto al menú abierto (250px + 20px de margen original) */
+}
+
+/* Media Queries para Responsividad (ajusta si ya tienes otras) */
+@media (max-width: 768px) {
+    .hamburger-icon {
+        top: 15px;
+        left: 15px;
+        width: 25px;
+        height: 20px;
+    }
+    .hamburger-icon .bar {
+        height: 2.5px;
+    }
+    .side-menu {
+        width: 220px; /* Reducir ancho del menú en móviles si lo deseas */
+        left: -220px;
+    }
+    .menu-toggle-checkbox:checked ~ .main-content-wrapper {
+        transform: translateX(220px);
+    }
+    .menu-toggle-checkbox:checked + .hamburger-icon {
+        left: 235px; /* Ajusta según el nuevo ancho del menú + margen */
+    }
+}
