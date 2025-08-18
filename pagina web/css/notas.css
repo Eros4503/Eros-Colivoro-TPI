@@ -1,0 +1,127 @@
+#titulo{
+    text-decoration: none;
+}
+#titulo:hover{
+    text-decoration: underline;
+}
+h1{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    text-decoration: none;
+}
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+h2:hover{
+    text-decoration: underline;
+}
+#img-fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;    
+}
+#fondo-img2{
+    
+    height: 150px;
+    background-color: #681c1c60;
+}
+#imagen-guevara{
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    left: 270px;
+    top: 20px;
+
+
+}
+table {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    
+}
+
+#nom-mat{
+    writing-mode: vertical-rl;
+    transform: rotate(0deg);
+    margin-top: 0px;
+    
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #000000;
+}
+
+th {
+    background-color: #681c1c60;
+}
+p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background:#911a1a5e ;
+    height: 30px;
+    margin-top: 0;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 0;
+    color: white;
+}
+p:hover{
+    text-decoration: underline;
+}
+
+
+#input{
+    width: 55px;
+    height: 30px;
+    padding-right: 0px;
+    text-align: center;
+
+}
+#corto{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+#corto:hover{
+    background:  rgb(223, 222, 222);
+}
+#corto2:hover{
+    background:  rgb(223, 222, 222);
+}
+#corto2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 38px;
+    text-align: center;
+}
+#table2{
+    margin-top: 0px;
+}
