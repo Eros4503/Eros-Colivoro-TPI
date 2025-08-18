@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="./css/profesores.css">
+</head>
+<body>
+    <div id="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="./VIDEOS/video.fondo.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
+    <div class="background-overlay"></div>
+
+    <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
+    
+    <label for="menuToggle" class="hamburger-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+
+    <aside id="sideMenu" class="side-menu">
+        <div class="menu-header">
+            </div>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="#">Gestionar notas</a></li>
+                <li><a href="./perfil_profesor.html">Mi Perfil</a></li>
+                </ul>
+        </nav>
+        <div class="menu-footer">
+            <button id="logoutButton" class="logout-button">Cerrar Sesión</button>
+        </div>
+    </aside>
+
+    <div class="overlay"></div>
+    <div class="main-content-wrapper">
+        <div class="header-box">
+            <h1>Bienvenido, <span id="profesorNombreDisplay">cargando nombre</span></h1>
+        </div>
+
+        <div class="card">
+            <h2>Seleccionar Notas</h2>
+            <div class="form-group">
+                <label for="cursoSelect">Curso:</label>
+                <select id="cursoSelect"></select>
+            </div>
+            <div class="form-group">
+                <label for="materiaSelect">Materia:</label>
+                <select id="materiaSelect"></select>
+            </div>
+            <div class="button-group">
+                <button id="cargarTablaBtn">Cargar Tabla</button>
+                <button id="guardarNotasBtn">Guardar Notas</button>
+            </div>
+        </div>
+
+        <div class="card" id="tablaNotasContainer">
+            <h2 id="tablaTitle">Notas por Alumno</h2>
+            <table id="notasTable">
+                <thead>
+                    <tr>
+                        <th>Nombre Alumno</th>
+                        <th>1er Informe</th>
+                        <th>2do Informe</th>
+                        <th>1er Cuatrimestre</th>
+                        <th>3er Informe</th>
+                        <th>4to Informe</th>
+                        <th>2do Cuatrimestre</th>
+                        <th>Nota Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="notificationMessage" class="notification-message"></div>
+
+    <script src="./js/profesor.js"></script>
+</body>
+</html>
