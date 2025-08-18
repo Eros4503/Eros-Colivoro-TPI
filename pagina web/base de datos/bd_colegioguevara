@@ -1,0 +1,1006 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 18-08-2025 a las 22:04:47
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `bd_colegioguevara`
+--
+CREATE DATABASE IF NOT EXISTS `bd_colegioguevara` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_colegioguevara`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cursos`
+--
+
+CREATE TABLE `cursos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`id`, `nombre`) VALUES
+(1, '7°1'),
+(2, '7°2'),
+(3, '7°3');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `materias`
+--
+
+CREATE TABLE `materias` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `materias`
+--
+
+INSERT INTO `materias` (`id`, `nombre`) VALUES
+(1, 'Test Vocacional'),
+(2, 'Inglés'),
+(3, 'Matemáticas'),
+(4, 'Marco Jurídico'),
+(5, 'Arduino'),
+(6, 'Asistencia'),
+(7, 'Programación'),
+(8, 'Autogestión'),
+(9, 'Hardware'),
+(10, 'Redes');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notas`
+--
+
+CREATE TABLE `notas` (
+  `id` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL,
+  `id_profesor` int(11) NOT NULL,
+  `nota` decimal(4,2) DEFAULT NULL,
+  `periodo` enum('1er Informe','2do Informe','1er Cuatrimestre','3er Informe','4to Informe','2do Cuatrimestre','Nota Final') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notas`
+--
+
+INSERT INTO `notas` (`id`, `id_alumno`, `id_materia`, `id_profesor`, `nota`, `periodo`) VALUES
+(876, 7, 3, 6, 5.00, '1er Informe'),
+(877, 7, 3, 6, 5.00, '2do Informe'),
+(878, 7, 3, 6, 5.00, '1er Cuatrimestre'),
+(879, 7, 3, 6, 5.00, '3er Informe'),
+(880, 7, 3, 6, 5.00, '4to Informe'),
+(881, 7, 3, 6, 6.00, '2do Cuatrimestre'),
+(882, 7, 3, 6, 6.00, 'Nota Final'),
+(883, 7, 2, 6, 10.00, '1er Informe'),
+(884, 7, 2, 6, 10.00, '2do Informe'),
+(885, 7, 2, 6, 10.00, '1er Cuatrimestre'),
+(886, 7, 2, 6, NULL, '3er Informe'),
+(887, 7, 2, 6, NULL, '4to Informe'),
+(888, 7, 2, 6, NULL, '2do Cuatrimestre'),
+(889, 7, 2, 6, NULL, 'Nota Final'),
+(890, 9, 2, 6, NULL, '1er Informe'),
+(891, 9, 2, 6, NULL, '2do Informe'),
+(892, 9, 2, 6, NULL, '1er Cuatrimestre'),
+(893, 9, 2, 6, NULL, '3er Informe'),
+(894, 9, 2, 6, NULL, '4to Informe'),
+(895, 9, 2, 6, NULL, '2do Cuatrimestre'),
+(896, 9, 2, 6, NULL, 'Nota Final'),
+(897, 9, 3, 6, 5.00, '1er Informe'),
+(898, 9, 3, 6, NULL, '2do Informe'),
+(899, 9, 3, 6, NULL, '1er Cuatrimestre'),
+(900, 9, 3, 6, NULL, '3er Informe'),
+(901, 9, 3, 6, NULL, '4to Informe'),
+(902, 9, 3, 6, NULL, '2do Cuatrimestre'),
+(903, 9, 3, 6, NULL, 'Nota Final'),
+(904, 7, 9, 6, 8.00, '1er Informe'),
+(905, 7, 9, 6, 8.00, '2do Informe'),
+(906, 7, 9, 6, 8.00, '1er Cuatrimestre'),
+(907, 7, 9, 6, 8.00, '3er Informe'),
+(908, 7, 9, 6, 8.00, '4to Informe'),
+(909, 7, 9, 6, 8.00, '2do Cuatrimestre'),
+(910, 7, 9, 6, 8.00, 'Nota Final'),
+(911, 9, 9, 6, 9.00, '1er Informe'),
+(912, 9, 9, 6, 9.00, '2do Informe'),
+(913, 9, 9, 6, 9.00, '1er Cuatrimestre'),
+(914, 9, 9, 6, 9.00, '3er Informe'),
+(915, 9, 9, 6, 9.00, '4to Informe'),
+(916, 9, 9, 6, 9.00, '2do Cuatrimestre'),
+(917, 9, 9, 6, 9.00, 'Nota Final'),
+(918, 10, 1, 6, 10.00, '1er Informe'),
+(919, 10, 1, 6, 9.00, '2do Informe'),
+(920, 10, 1, 6, 9.00, '1er Cuatrimestre'),
+(921, 10, 1, 6, 9.00, '3er Informe'),
+(922, 10, 1, 6, 9.00, '4to Informe'),
+(923, 10, 1, 6, 9.00, '2do Cuatrimestre'),
+(924, 10, 1, 6, 9.00, 'Nota Final'),
+(925, 12, 1, 6, NULL, '1er Informe'),
+(926, 12, 1, 6, NULL, '2do Informe'),
+(927, 12, 1, 6, NULL, '1er Cuatrimestre'),
+(928, 12, 1, 6, NULL, '3er Informe'),
+(929, 12, 1, 6, NULL, '4to Informe'),
+(930, 12, 1, 6, NULL, '2do Cuatrimestre'),
+(931, 12, 1, 6, NULL, 'Nota Final'),
+(932, 7, 6, 13, 9.00, '1er Informe'),
+(933, 7, 6, 13, 8.00, '2do Informe'),
+(934, 7, 6, 13, 8.00, '1er Cuatrimestre'),
+(935, 7, 6, 13, 8.00, '3er Informe'),
+(936, 7, 6, 13, 8.00, '4to Informe'),
+(937, 7, 6, 13, 8.00, '2do Cuatrimestre'),
+(938, 7, 6, 13, 8.00, 'Nota Final'),
+(939, 9, 6, 13, 1.00, '1er Informe'),
+(940, 9, 6, 13, NULL, '2do Informe'),
+(941, 9, 6, 13, NULL, '1er Cuatrimestre'),
+(942, 9, 6, 13, NULL, '3er Informe'),
+(943, 9, 6, 13, NULL, '4to Informe'),
+(944, 9, 6, 13, NULL, '2do Cuatrimestre'),
+(945, 9, 6, 13, NULL, 'Nota Final'),
+(946, 7, 1, 6, 2.00, '1er Informe'),
+(947, 7, 1, 6, 2.00, '2do Informe'),
+(948, 7, 1, 6, 2.00, '1er Cuatrimestre'),
+(949, 7, 1, 6, 3.00, '3er Informe'),
+(950, 7, 1, 6, 3.00, '4to Informe'),
+(951, 7, 1, 6, 4.00, '2do Cuatrimestre'),
+(952, 7, 1, 6, 6.00, 'Nota Final'),
+(953, 9, 1, 6, NULL, '1er Informe'),
+(954, 9, 1, 6, NULL, '2do Informe'),
+(955, 9, 1, 6, NULL, '1er Cuatrimestre'),
+(956, 9, 1, 6, NULL, '3er Informe'),
+(957, 9, 1, 6, NULL, '4to Informe'),
+(958, 9, 1, 6, NULL, '2do Cuatrimestre'),
+(959, 9, 1, 6, NULL, 'Nota Final'),
+(960, 10, 7, 15, 1.00, '1er Informe'),
+(961, 10, 7, 15, NULL, '2do Informe'),
+(962, 10, 7, 15, NULL, '1er Cuatrimestre'),
+(963, 10, 7, 15, NULL, '3er Informe'),
+(964, 10, 7, 15, NULL, '4to Informe'),
+(965, 10, 7, 15, NULL, '2do Cuatrimestre'),
+(966, 10, 7, 15, NULL, 'Nota Final'),
+(967, 12, 7, 15, NULL, '1er Informe'),
+(968, 12, 7, 15, NULL, '2do Informe'),
+(969, 12, 7, 15, NULL, '1er Cuatrimestre'),
+(970, 12, 7, 15, NULL, '3er Informe'),
+(971, 12, 7, 15, NULL, '4to Informe'),
+(972, 12, 7, 15, NULL, '2do Cuatrimestre'),
+(973, 12, 7, 15, NULL, 'Nota Final'),
+(974, 17, 6, 13, NULL, '1er Informe'),
+(975, 17, 6, 13, NULL, '2do Informe'),
+(976, 17, 6, 13, NULL, '1er Cuatrimestre'),
+(977, 17, 6, 13, NULL, '3er Informe'),
+(978, 17, 6, 13, NULL, '4to Informe'),
+(979, 17, 6, 13, NULL, '2do Cuatrimestre'),
+(980, 17, 6, 13, NULL, 'Nota Final');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre_completo` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `nombre_usuario` varchar(50) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
+  `tipo_usuario` enum('alumno','profesor','admin') NOT NULL,
+  `curso` int(11) DEFAULT NULL,
+  `foto_perfil_url` varchar(255) DEFAULT 'default_profile.png'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre_completo`, `email`, `nombre_usuario`, `contrasena`, `tipo_usuario`, `curso`, `foto_perfil_url`) VALUES
+(6, 'matias fernandez', 'matii@gmail.com', 'matias', '$2b$10$laMoWeLVVecwQET/0mSYXeQkRSNfaoMPXNEoi5hsA1saSccJ3X5dW', 'profesor', 0, '/uploads/fotos_perfil/6-1752712475116-267412527.jpg'),
+(7, 'eros colivoro', 'colivoroeros3@gmail.com', 'eros', '$2b$10$249rLCALcTdGBoasqP.oS.bfbTcOn9JheMVyIj3fUBggTiuHTE7Le', 'alumno', 1, '/uploads/fotos_perfil/7-1755105293697-846618551.jpg'),
+(8, 'hugo barrera', 'hugo@gmail.com', 'hugo', '$2b$10$IHYv9jokO3SZZ7W2XhxrT.W4cdFUgkTVFDKLaTeqtPC9QN4GuwfYi', 'admin', NULL, 'default_profile.png'),
+(9, 'nerea villasanti', 'nere@nere', 'nere', '$2b$10$Ufup4xfnJrTjPQPznubqq.Nir6jwb./zEgcbYKPp88gFbqxO.6C.u', 'alumno', 1, '/uploads/fotos_perfil/9-1752547838151-8159975.jpg'),
+(10, 'eric vargas', 'ericrack@gmail.com', 'eric', '$2b$10$c1HlJ96DWxLb0ZwmBHBjKO0kYONaxTN5TsCg1cF/KML.LQ.2NQ4Wq', 'alumno', 2, 'default_profile.png'),
+(11, 'kevin vargas', 'kevinelpro@gmail.com', 'kevin', '$2b$10$kcqqhCL67L7gPnDXJjnnG.41.CpEGeEth7UQ0Dy4XyfS/UJwcELSO', 'alumno', 3, 'default_profile.png'),
+(12, 'franco nieves', 'francopistolero@gmail.com', 'franco', '$2b$10$9pgpLNVEvH5czwyPxp0eaO8exOLoL6oEWA1gX0xCZMT3BCVXSjFjW', 'alumno', 2, 'default_profile.png'),
+(13, 'estefania llauca', 'llaucaestefania@gmail.com', 'llauca', '$2b$10$rYudSyzMXfeHs9vFik5S/O547Zzgw0PZEU32Ru5GXPAWzBYFheK6.', 'profesor', NULL, '/uploads/fotos_perfil/13-1752713347714-544505001.jpg'),
+(14, 'cristina', 'crisver@gmail.com', 'cris', '$2b$10$rtmDZieo9DhuvYkPKW97RO1u8OGRuu5I7kLYe8NZ1G1gnA9Y.TQeu', 'alumno', 3, 'default_profile.png'),
+(15, 'veronica ', 'veronicaprofe@gmail.com', 'veronica', '$2b$10$c1LiBnlEg51FSkaXcTkGe.63S1P2cPCdZPPmGzT5DsSLoXgqedqDe', 'profesor', NULL, '/uploads/fotos_perfil/15-1755105265077-181003020.jpg'),
+(16, 'marta robledo', 'robledomarta123@gmail.com', 'marta', '$2b$10$mlkN3WHikSel1xaIw5PrMuSc6jQFamM3vweiupRknN36ZZw8d7RaO', 'profesor', NULL, 'default_profile.png'),
+(17, 'vicente', 'vicente@example.com', 'vicente', '$2b$10$SODHNqiWXCiVUdzKWxHU/./HHKzVv/OBbqMl6Z9GPTUcmD03tu8Vu', 'alumno', 1, 'default_profile.png');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cursos`
+--
+ALTER TABLE `cursos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `materias`
+--
+ALTER TABLE `materias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_alumno_2` (`id_alumno`,`id_materia`,`periodo`),
+  ADD KEY `id_alumno` (`id_alumno`),
+  ADD KEY `id_materia` (`id_materia`),
+  ADD KEY `id_profesor` (`id_profesor`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
+  ADD UNIQUE KEY `nombre_usuario_2` (`nombre_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cursos`
+--
+ALTER TABLE `cursos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `materias`
+--
+ALTER TABLE `materias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `notas`
+--
+ALTER TABLE `notas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=981;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id`),
+  ADD CONSTRAINT `notas_ibfk_3` FOREIGN KEY (`id_profesor`) REFERENCES `usuarios` (`id`);
+--
+-- Base de datos: `bd_guevara`
+--
+CREATE DATABASE IF NOT EXISTS `bd_guevara` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_guevara`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumnos`
+--
+
+CREATE TABLE `alumnos` (
+  `alumno_ID` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `Curso_ID` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `curso`
+--
+
+CREATE TABLE `curso` (
+  `Curso_id` int(11) NOT NULL,
+  `nombre_curso` varchar(30) NOT NULL,
+  `orientacion` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `curso_materia`
+--
+
+CREATE TABLE `curso_materia` (
+  `curso_materia_id` int(11) NOT NULL,
+  `curso_id` varchar(30) NOT NULL,
+  `materia` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `materia`
+--
+
+CREATE TABLE `materia` (
+  `materia_id` int(11) NOT NULL,
+  `nombre_materia` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `nota`
+--
+
+CREATE TABLE `nota` (
+  `nota_id` int(11) NOT NULL,
+  `materia_id` varchar(30) NOT NULL,
+  `curso_id` varchar(30) NOT NULL,
+  `alumno_id` varchar(30) NOT NULL,
+  `nota` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planilla`
+--
+
+CREATE TABLE `planilla` (
+  `planilla` int(11) NOT NULL,
+  `alumno_id` varchar(30) NOT NULL,
+  `materia_id` varchar(30) NOT NULL,
+  `nota_id` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_usuario`
+--
+
+CREATE TABLE `tipo_usuario` (
+  `tipo_usuario_id` int(11) NOT NULL,
+  `rol` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `usuario_id` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `correo` varchar(30) NOT NULL,
+  `contraseña` varchar(30) NOT NULL,
+  `tipo_usuario_id` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD PRIMARY KEY (`alumno_ID`);
+
+--
+-- Indices de la tabla `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`Curso_id`);
+
+--
+-- Indices de la tabla `curso_materia`
+--
+ALTER TABLE `curso_materia`
+  ADD PRIMARY KEY (`curso_materia_id`);
+
+--
+-- Indices de la tabla `materia`
+--
+ALTER TABLE `materia`
+  ADD PRIMARY KEY (`materia_id`);
+
+--
+-- Indices de la tabla `nota`
+--
+ALTER TABLE `nota`
+  ADD PRIMARY KEY (`nota_id`);
+
+--
+-- Indices de la tabla `planilla`
+--
+ALTER TABLE `planilla`
+  ADD PRIMARY KEY (`planilla`),
+  ADD UNIQUE KEY `planilla` (`planilla`);
+
+--
+-- Indices de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  ADD PRIMARY KEY (`tipo_usuario_id`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`usuario_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  MODIFY `alumno_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `Curso_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `curso_materia`
+--
+ALTER TABLE `curso_materia`
+  MODIFY `curso_materia_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `materia`
+--
+ALTER TABLE `materia`
+  MODIFY `materia_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `nota`
+--
+ALTER TABLE `nota`
+  MODIFY `nota_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `planilla`
+--
+ALTER TABLE `planilla`
+  MODIFY `planilla` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  MODIFY `tipo_usuario_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Base de datos: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) NOT NULL DEFAULT '',
+  `user` varchar(255) NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `query` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) NOT NULL,
+  `col_name` varchar(64) NOT NULL,
+  `col_type` varchar(64) NOT NULL,
+  `col_length` text DEFAULT NULL,
+  `col_collation` varchar(64) NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) DEFAULT '',
+  `col_default` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `column_name` varchar(64) NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `transformation` varchar(255) NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) NOT NULL,
+  `settings_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+--
+-- Volcado de datos para la tabla `pma__designer_settings`
+--
+
+INSERT INTO `pma__designer_settings` (`username`, `settings_data`) VALUES
+('root', '{\"relation_lines\":\"true\",\"angular_direct\":\"direct\",\"snap_to_grid\":\"off\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db` varchar(64) NOT NULL DEFAULT '',
+  `table` varchar(64) NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sqlquery` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) NOT NULL,
+  `item_name` varchar(64) NOT NULL,
+  `item_type` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+--
+-- Volcado de datos para la tabla `pma__pdf_pages`
+--
+
+INSERT INTO `pma__pdf_pages` (`db_name`, `page_nr`, `page_descr`) VALUES
+('bd_guevara', 1, 'relaciones');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Volcado de datos para la tabla `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{\"db\":\"bd_colegioguevara\",\"table\":\"cursos\"},{\"db\":\"bd_colegioguevara\",\"table\":\"notas\"},{\"db\":\"bd_colegioguevara\",\"table\":\"usuarios\"},{\"db\":\"bd_colegioguevara\",\"table\":\"materias\"},{\"db\":\"bd_guevara\",\"table\":\"tipo_usuario\"},{\"db\":\"bd_guevara\",\"table\":\"usuario\"},{\"db\":\"bd_guevara\",\"table\":\"curso_materia\"},{\"db\":\"bd_guevara\",\"table\":\"curso\"},{\"db\":\"bd_guevara\",\"table\":\"alumnos\"},{\"db\":\"bd_guevara\",\"table\":\"planilla\"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) NOT NULL DEFAULT '',
+  `master_table` varchar(64) NOT NULL DEFAULT '',
+  `master_field` varchar(64) NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `search_name` varchar(64) NOT NULL DEFAULT '',
+  `search_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
+  `x` float UNSIGNED NOT NULL DEFAULT 0,
+  `y` float UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+--
+-- Volcado de datos para la tabla `pma__table_coords`
+--
+
+INSERT INTO `pma__table_coords` (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`) VALUES
+('bd_guevara', 'alumnos', 1, 415, 97),
+('bd_guevara', 'curso', 1, 789, 462),
+('bd_guevara', 'curso_materia', 1, 846, 358),
+('bd_guevara', 'materia', 1, 683, 362),
+('bd_guevara', 'nota', 1, 877, 487),
+('bd_guevara', 'planilla', 1, 416, 289),
+('bd_guevara', 'tipo_usuario', 1, 69, 280),
+('bd_guevara', 'usuario', 1, 74, 94);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `display_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `prefs` text NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+--
+-- Volcado de datos para la tabla `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'bd_colegioguevara', 'usuarios', '{\"sorted_col\":\"`curso` ASC\"}', '2025-07-14 23:41:11');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text NOT NULL,
+  `schema_sql` text DEFAULT NULL,
+  `data_sql` longtext DEFAULT NULL,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `config_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Volcado de datos para la tabla `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2025-08-18 20:04:36', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) NOT NULL,
+  `tab` varchar(64) NOT NULL,
+  `allowed` enum('Y','N') NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) NOT NULL,
+  `usergroup` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Indices de la tabla `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Indices de la tabla `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indices de la tabla `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Indices de la tabla `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indices de la tabla `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Indices de la tabla `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Indices de la tabla `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indices de la tabla `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Indices de la tabla `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Indices de la tabla `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Indices de la tabla `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Indices de la tabla `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indices de la tabla `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Indices de la tabla `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Base de datos: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
